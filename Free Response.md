@@ -15,13 +15,55 @@
 ## Identify the Algorithm present in the JavaScript Files. 
 ### Aspects of Algorithm
 Sequencing
-Selection 
-Iteration
+``` Javascript
+function addToDo(event) {
+  DOMSelectors.toDoList.innerHTML = "";
+  const inputtedToDo = DOMSelectors.userInput.value;
+  event.preventDefault();
+  ToDoItems.push(inputtedToDo);
+  displayToDoList(ToDoItems);
+  DOMSelectors.userInput.value = "";
+}
 
+function displayToDoList(array) {
+  array.forEach((inputs) => {
+    DOMSelectors.toDoList.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card"><div class = "to-do-card">${inputs}</div>
+    <button type ="submit" class="remove-button" id="remove-reminder"> Remove </button>
+    </div>`
+    );
+  });
+  const removeButton = document.querySelectorAll(".remove-button");
+  removeButton.forEach((button) => {
+    button.addEventListener("click", removeToDo);
+  });
+  ```
+
+Selection 
+ ``` JavaScript
+    for (let i = 0; i < ToDoItems.length; i++) {
+      if (ToDoItems[i] === specificCardText) {
+        ToDoItems.splice(i, 1);
+        break;
+      }
+    }
+```
+Iteration
+```Javascript
+for (let i = 0; i < ToDoItems.length; i++) {
+      if (ToDoItems[i] === specificCardText) {
+        ToDoItems.splice(i, 1);
+        break;
+      }
+    }
+```
 
 
 ### Question 1
 Programs accept input to achieve their intended functionality. **Describe at least one valid input to your program and what your program does with that input.**
+
+The input in Evan's program is the DOM selec
 
 - Write your responses to this question only on the designated pages in the separate Written Response booklet.
 - If there are multiple parts to this question, write the part letter with your response.
